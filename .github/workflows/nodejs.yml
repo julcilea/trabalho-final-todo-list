@@ -38,7 +38,7 @@ jobs:
       run: npm run test-rest-controller
 
     - name: Subir a API 
-      run: npm start &
+      run: npm run dev &
 
     - name: Esperar a API estar Funcionando
       run: sleep 5
