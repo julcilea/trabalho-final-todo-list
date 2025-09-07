@@ -57,17 +57,17 @@ describe('To-Do API', () => {
       const res = await api
         .post('/todos')
         .set('Authorization', `Bearer ${token}`)
-        .send("");
+        .send({ description: 'No title provided' });
 
       expect(res.status).to.equal(400);
-      expect(res.body.error).to.equal('title is required');
+      expect(res.body.message).to.equal('Titulo é obrigatório');
     });
   });
 
   describe('PUT /todos/:id', () => {
 
     beforeEach(async () => {
-      const newTodo = { title: 'New API Test Todo' };
+      const newTodo = { title: 'New API Test Todo', description: 'Description' };
       const createRes = await api
         .post('/todos')
         .set('Authorization', `Bearer ${token}`)
@@ -77,9 +77,9 @@ describe('To-Do API', () => {
     });
 
     it('should update a todo successfully', async () => {
-      const updatedData = { title: 'Updated Title', completed: true };
+      const updatedData = { title: 'Updated Title', description: 'Updated Description', completed: true };
       const res = await api
-        .patch(`/todos/${todoId}`)
+        .put(`/todos/${todoId}`)
         .set('Authorization', `Bearer ${token}`)
         .send(updatedData);
 
@@ -89,16 +89,14 @@ describe('To-Do API', () => {
     });
 
     it('should return 404 if todo not found', async () => {
-      // Use a non-existent ID
       const nonExistentId = 9999;
-
       const res = await api
-        .patch(`/todos/${nonExistentId}`)
+        .put(`/todos/${nonExistentId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({ title: 'Does not matter' });
 
       expect(res.status).to.equal(404);
-      expect(res.body.error).to.equal('not found');
+      expect(res.body.message).to.equal('Tarefa não encontrada');
     });
   });
 
@@ -124,7 +122,7 @@ describe('To-Do API', () => {
         .set('Authorization', `Bearer ${token}`);
 
       expect(res.status).to.equal(404);
-      expect(res.body.error).to.equal('not found');
+      expect(res.body.message).to.equal('Tarefa não encontrada');
     });
   });
 });

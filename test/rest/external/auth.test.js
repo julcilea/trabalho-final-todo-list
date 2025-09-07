@@ -22,7 +22,7 @@ describe('Auth API', () => {
         .send({ email: `test_get_todos_${Date.now()}@teste.com`, password: "123456" });
 
       expect(res.status).to.equal(201);
-      expect(res.body).to.contain.property('token');
+      expect(res.body.message).to.equal('Usuário cadastrado com sucesso');
 
     });
 
@@ -37,7 +37,7 @@ describe('Auth API', () => {
         .send({ email: 'duplicate@teste.com', password: '123456' });
 
       expect(res.status).to.equal(409);
-      expect(res.body.error).to.equal('email already registered');
+      expect(res.body.message).to.equal('O usuário já existe');
     });
 
     it('should return 400 if email or password are not provided', async () => {
@@ -46,7 +46,7 @@ describe('Auth API', () => {
         .send({ email: 'teste@teste.com' });
 
       expect(res.status).to.equal(400);
-      expect(res.body.error).to.equal('email and password are required');
+      expect(res.body.message).to.equal('Email e senha são obrigatórios');
     });
   });
 
@@ -77,7 +77,7 @@ describe('Auth API', () => {
         .send({ email: `nonexistent_${Date.now()}@teste.com`, password: '123456' });
 
       expect(res.status).to.equal(401);
-      expect(res.body.error).to.equal('invalid credentials');
+      expect(res.body.message).to.equal('Credenciais inválidas');
     });
 
     it('should return 401 for invalid credentials (wrong password)', async () => {
@@ -95,7 +95,7 @@ describe('Auth API', () => {
         .send({ email, password: 'wrongpassword' });
 
       expect(res.status).to.equal(401);
-      expect(res.body.error).to.equal('invalid credentials');
+      expect(res.body.message).to.equal('Credenciais inválidas');
     });
   });
 });
