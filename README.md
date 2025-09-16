@@ -1,8 +1,8 @@
 # API de Lista de Tarefas (To-Do List)
 
-Esta é uma API RESTful construída com Node.js, Express e autenticação baseada em JWT. Ela fornece endpoints para registro de usuário, login e gerenciamento de tarefas (CRUD).
+Este projeto oferece tanto uma API RESTful quanto uma API GraphQL, ambas construídas com Node.js e autenticação baseada em JWT. As APIs fornecem funcionalidades para registro de usuário, login e gerenciamento de tarefas (CRUD).
 
-A API foi projetada com uma estrutura separada (`app.js` e `server.js`) para facilitar os testes de API com ferramentas como o Supertest.
+Ambas as APIs foram projetadas com uma estrutura separada (`app.js` e `server.js`) para facilitar os testes com ferramentas como o Supertest.
 
 ## Funcionalidades
 
@@ -15,6 +15,7 @@ A API foi projetada com uma estrutura separada (`app.js` e `server.js`) para fac
 
 ## Tecnologias Utilizadas
 
+### API REST
 -   Node.js
 -   Express
 -   JSON Web Token (JWT)
@@ -22,34 +23,13 @@ A API foi projetada com uma estrutura separada (`app.js` e `server.js`) para fac
 -   Swagger (para documentação)
 -   Dotenv (para gerenciamento de variáveis de ambiente)
 
-## Estrutura do Projeto
+### API GraphQL
+-   Apollo Server 4
+-   GraphQL
+-   Express
+-   JSON Web Token (JWT)
+-   bcryptjs (para hash de senhas)
 
-```
-.
-├── src
-│   ├── controllers
-│   │   ├── authController.js
-│   │   └── todoController.js
-│   ├── middleware
-│   │   └── authMiddleware.js
-│   ├── models
-│   │   ├── userModel.js
-│   │   └── todoModel.js
-│   ├── routes
-│   │   ├── authRoutes.js
-│   │   └── todoRoutes.js
-│   ├── config
-│   │   └── swagger.js
-│   ├── app.js          # Configuração do App Express
-│   └── server.js       # Ponto de entrada (inicia o servidor)
-├── test
-│   ├── authController.test.js
-│   └── todoController.test.js
-├── .env                # Variáveis de ambiente (não versionado)
-├── .gitignore          # Arquivos ignorados pelo Git
-├── package.json
-└── README.md
-```
 
 ## Configuração e Instalação
 
@@ -68,7 +48,9 @@ A API foi projetada com uma estrutura separada (`app.js` e `server.js`) para fac
     Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis. Você pode usar o arquivo `.env.example` como base.
     ```
     # Porta do servidor
-    PORT=3000
+    # Portas dos servidores
+    PORT=3000           # API REST
+    GRAPHQL_PORT=4000   # API GraphQL
 
     # Configuração do JWT
     JWT_SECRET=sua-chave-secreta-super-segura
@@ -89,15 +71,40 @@ A API foi projetada com uma estrutura separada (`app.js` e `server.js`) para fac
     npm start
     ```
 
-O servidor estará em execução em `http://localhost:3000`.
+Os servidores estarão em execução em:
+- API REST: `http://localhost:3000`
+- API GraphQL: `http://localhost:4000/graphql`
 
 ## Testes
 
-O projeto utiliza **Mocha**, **Chai**, **Supertest** e **Sinon** para testes de integração e de unidade dos controllers.
+O projeto utiliza **Mocha**, **Chai**, **Supertest** e **Sinon** para testes de integração e de unidade dos controllers, tanto para a API REST quanto para a API GraphQL.
 
 -   **Mocha**: Test runner.
 -   **Chai**: Biblioteca de asserção.
--   **Supertest**: Para realizar requisições HTTP à API.
+-   **Supertest**: Para realizar requisições HTTP às APIs.
+-   **Sinon**: Para criar stubs e mocks nos testes.
+
+### Executando os Testes
+
+Para executar os testes, você pode usar os seguintes comandos:
+
+#### API REST
+```bash
+# Testes dos controllers
+npm run test-rest-controller
+
+# Testes de integração
+npm run test-rest-external
+```
+
+#### API GraphQL
+```bash
+# Testes dos controllers
+npm run test-graphql-controller
+
+# Testes de integração
+npm run test-graphql-external
+```
 -   **Sinon**: Para criar stubs e mocks, isolando os controllers dos models e middlewares.
 
 Para rodar todos os testes, execute o seguinte comando:
