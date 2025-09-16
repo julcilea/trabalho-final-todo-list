@@ -7,7 +7,7 @@ const User = require('../../../src/models/userModel');
 const Todo = require('../../../src/models/todoModel');
 
 describe('GraphQL Todo API', () => {
-    const api = request(process.env.URL_BASE_GRAPHQL || 'http://localhost:4000/graphql');
+    const api = request(process.env.URL_BASE_GRAPHQL);
     let token;
 
     before(async () => {

@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "start-graphql": "node src/graphql/server.js",
     "dev": "nodemon src/server.js",
+    "dev-graphql": "nodemon src/graphql/server.js",
     "test": "mocha 'test/**/**/*.test.js' --timeout 10000 --reporter mochawesome",
     "test-rest-controller": "mocha 'test/rest/controller/**/*.test.js' --timeout 10000 --reporter mochawesome --reporter-options reportDir=./,reportFilename=report1,overwrite=true,html=true,json=true",
     "test-rest-external": "mocha 'test/rest/external/**/*.test.js' --timeout 10000 --reporter mochawesome --reporter-options reportDir=./,reportFilename=report,overwrite=true,html=true,json=true",

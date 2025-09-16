@@ -32,7 +32,8 @@ jobs:
         echo "URL_BASE_REST=${{ secrets.URL_BASE_REST }}" >> .env
         echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
         echo "JWT_EXPIRES_IN=${{ secrets.JWT_EXPIRES_IN }}" >> .env
-      # echo "BASE_URL_GRAPHQL=${{ secrets.BASE_URL_GRAPHQL }}" >> .env    
+        echo "BASE_URL_GRAPHQL=${{ secrets.URL_BASE_GRAPHQL }}" >> .env
+        echo "GRAPHQL_PORT=${{ secrets.GRAPHQL_PORT }}" >> .env     
 
     - name: Rodar os testes de API via Controller
       run: npm run test-rest-controller
@@ -53,9 +54,15 @@ jobs:
       run: sleep 5
 
     - name: Rodar os testes de API GRAPHQL via App
-      run: npm run test-graphql-controller 
-        
-    - name: Rodar os testes de API via HTTP
+      run: npm run test-graphql-controller
+
+    - name: Subir a API GRAPHQL
+      run: |
+        npm run start-graphql &
+        echo $! > graphql-server.pid
+        sleep 5
+
+    - name: Rodar os testes de API GRAPHQL via HTTP
       run: npm run test-graphql-external
 
       # Publica o relatório no GitHub Pages
