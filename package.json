@@ -25,9 +25,13 @@
   },
   "homepage": "https://github.com/julcilea/trabalho-final-todo-list#readme",
   "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "@graphql-tools/schema": "^10.0.0",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.2",
-    "express": "^5.1.0",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-middleware": "^6.1.35",
     "jsonwebtoken": "^9.0.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
