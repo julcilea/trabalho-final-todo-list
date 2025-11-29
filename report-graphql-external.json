@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-16T00:47:03.568Z",
-    "end": "2025-09-16T00:47:04.363Z",
-    "duration": 795,
+    "start": "2025-11-29T01:02:48.129Z",
+    "end": "2025-11-29T01:02:48.932Z",
+    "duration": 803,
     "testsRegistered": 13,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c8e9a03c-2560-4f79-b687-6223b8c547ac",
+      "uuid": "aa65ace1-1ea4-4518-ab4b-5f0a6659851a",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ae9e64ed-f220-42c3-b948-d0d0a6f01f96",
+          "uuid": "d531739b-5b29-4915-bd64-b6cb45a69e15",
           "title": "GraphQL Auth API",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/auth.test.js",
           "file": "/test/graphql/external/auth.test.js",
@@ -45,8 +45,8 @@
               "context": null,
               "code": "User.clear();\nTodo.clear();",
               "err": {},
-              "uuid": "03098f83-6833-4933-b858-64b4acf0b6b6",
-              "parentUUID": "ae9e64ed-f220-42c3-b948-d0d0a6f01f96",
+              "uuid": "6b544109-002c-4a2f-96d9-08a410d4fd6d",
+              "parentUUID": "d531739b-5b29-4915-bd64-b6cb45a69e15",
               "isHook": true,
               "skipped": false
             }
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "dcb2696f-6728-4e3e-bc85-a3c58f295542",
+              "uuid": "dbb80cc7-28f4-414a-b4d5-eec3a14e7cd0",
               "title": "Mutation register",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/auth.test.js",
               "file": "/test/graphql/external/auth.test.js",
@@ -66,7 +66,7 @@
                   "title": "should register a new user successfully",
                   "fullTitle": "GraphQL Auth API Mutation register should register a new user successfully",
                   "timedOut": false,
-                  "duration": 132,
+                  "duration": 135,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "User.clear();\nconst res = await api\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email: `test_get_todos_${Date.now()}@teste.com`, password: \"123456\" }\n        }\n    });\nexpect(res.body.data.register.message).to.equal('Usuário cadastrado com sucesso');",
                   "err": {},
-                  "uuid": "df2d927f-4736-467d-86a0-0b3f7c2b68f9",
-                  "parentUUID": "dcb2696f-6728-4e3e-bc85-a3c58f295542",
+                  "uuid": "56d80ca9-3180-4920-82f5-0f8bf3b0b33e",
+                  "parentUUID": "dbb80cc7-28f4-414a-b4d5-eec3a14e7cd0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -84,7 +84,7 @@
                   "title": "should return error if email already exists",
                   "fullTitle": "GraphQL Auth API Mutation register should return error if email already exists",
                   "timedOut": false,
-                  "duration": 89,
+                  "duration": 90,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -93,8 +93,8 @@
                   "context": null,
                   "code": "User.clear();\nconst email = 'duplicate@teste.com';\nawait api\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email, password: \"123456\" }\n        }\n    });\nconst res = await api\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email, password: \"123456\" }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('O usuário já existe');",
                   "err": {},
-                  "uuid": "380bce94-f9e8-424d-8193-b337ce508f4d",
-                  "parentUUID": "dcb2696f-6728-4e3e-bc85-a3c58f295542",
+                  "uuid": "2d589862-4c82-4116-a75c-30a0cebde447",
+                  "parentUUID": "dbb80cc7-28f4-414a-b4d5-eec3a14e7cd0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -102,7 +102,7 @@
                   "title": "should validate required fields with GraphQL schema",
                   "fullTitle": "GraphQL Auth API Mutation register should validate required fields with GraphQL schema",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -111,28 +111,28 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email: 'teste@teste.com' }\n        }\n    });\nexpect(res.body.errors[0].message).to.include('Field \"password\" of required type \"String!\" was not provided');",
                   "err": {},
-                  "uuid": "1e004cf9-e1f8-40bc-a666-a19a3b4a0ac1",
-                  "parentUUID": "dcb2696f-6728-4e3e-bc85-a3c58f295542",
+                  "uuid": "84a2058a-207d-4893-b4ff-6a8450c9443b",
+                  "parentUUID": "dbb80cc7-28f4-414a-b4d5-eec3a14e7cd0",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "df2d927f-4736-467d-86a0-0b3f7c2b68f9",
-                "380bce94-f9e8-424d-8193-b337ce508f4d",
-                "1e004cf9-e1f8-40bc-a666-a19a3b4a0ac1"
+                "56d80ca9-3180-4920-82f5-0f8bf3b0b33e",
+                "2d589862-4c82-4116-a75c-30a0cebde447",
+                "84a2058a-207d-4893-b4ff-6a8450c9443b"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 224,
+              "duration": 229,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "ac6d79d4-75af-4012-8a3e-65cb9c038f31",
+              "uuid": "43f05cdd-9bcf-4d33-af57-af8c82f48f3c",
               "title": "Mutation login",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/auth.test.js",
               "file": "/test/graphql/external/auth.test.js",
@@ -152,8 +152,8 @@
                   "context": null,
                   "code": "User.clear();\nconst email = `test_login_success_${Date.now()}@teste.com`;\nconst password = '123456';\nawait api\n    .post('/graphql')\n    .send({\n        query: `mutation Register($input: RegisterInput!) {\nregister(input: $input) { message }\n          }`,\n        variables: {\n            input: { email, password }\n        }\n    });\nconst res = await api\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email, password }\n        }\n    });\nexpect(res.body.data.login).to.have.property('token');",
                   "err": {},
-                  "uuid": "a0fdafe3-d7ad-4159-bd92-538337d5e775",
-                  "parentUUID": "ac6d79d4-75af-4012-8a3e-65cb9c038f31",
+                  "uuid": "25cc8238-251d-466c-86f8-09190a312120",
+                  "parentUUID": "43f05cdd-9bcf-4d33-af57-af8c82f48f3c",
                   "isHook": false,
                   "skipped": false
                 },
@@ -170,8 +170,8 @@
                   "context": null,
                   "code": "User.clear();\nconst res = await api\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email: `nonexistent_${Date.now()}@teste.com`, password: '123456' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "e9562208-4163-474a-a34a-936619260fc2",
-                  "parentUUID": "ac6d79d4-75af-4012-8a3e-65cb9c038f31",
+                  "uuid": "e63f10c1-57cc-4eb6-8d7a-34a80885ed2d",
+                  "parentUUID": "43f05cdd-9bcf-4d33-af57-af8c82f48f3c",
                   "isHook": false,
                   "skipped": false
                 },
@@ -179,7 +179,7 @@
                   "title": "should return error for invalid credentials (wrong password)",
                   "fullTitle": "GraphQL Auth API Mutation login should return error for invalid credentials (wrong password)",
                   "timedOut": false,
-                  "duration": 170,
+                  "duration": 172,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -188,22 +188,22 @@
                   "context": null,
                   "code": "User.clear();\nconst email = `test_login_wrong_pwd_${Date.now()}@teste.com`;\nconst password = '123456';\nawait api\n    .post('/graphql')\n    .send({\n        query: `mutation Register($input: RegisterInput!) {\nregister(input: $input) { message }\n          }`,\n        variables: {\n            input: { email, password }\n        }\n    });\nconst res = await api\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email, password: 'wrongpassword' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "e29d0726-6d21-400c-88f0-ad396cec685f",
-                  "parentUUID": "ac6d79d4-75af-4012-8a3e-65cb9c038f31",
+                  "uuid": "95899831-de06-4ba3-98a9-9bad1666e49c",
+                  "parentUUID": "43f05cdd-9bcf-4d33-af57-af8c82f48f3c",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "a0fdafe3-d7ad-4159-bd92-538337d5e775",
-                "e9562208-4163-474a-a34a-936619260fc2",
-                "e29d0726-6d21-400c-88f0-ad396cec685f"
+                "25cc8238-251d-466c-86f8-09190a312120",
+                "e63f10c1-57cc-4eb6-8d7a-34a80885ed2d",
+                "95899831-de06-4ba3-98a9-9bad1666e49c"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 347,
+              "duration": 349,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
@@ -219,7 +219,7 @@
           "_timeout": 10000
         },
         {
-          "uuid": "487c92c1-1e57-493b-a6d3-c87a9f0351d7",
+          "uuid": "ed57a88c-538f-4fab-9898-2da3886175b2",
           "title": "GraphQL Todo API",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/todo.test.js",
           "file": "/test/graphql/external/todo.test.js",
@@ -228,7 +228,7 @@
               "title": "\"before all\" hook in \"GraphQL Todo API\"",
               "fullTitle": "GraphQL Todo API \"before all\" hook in \"GraphQL Todo API\"",
               "timedOut": false,
-              "duration": 175,
+              "duration": 176,
               "state": null,
               "speed": null,
               "pass": false,
@@ -237,8 +237,8 @@
               "context": null,
               "code": "User.clear();\nTodo.clear();\nconst email = `test_get_todos_${Date.now()}@teste.com`;\nconst password = 'password123';\n// Register\nawait api.post('/graphql').send({\n    query: `mutation Register($input: RegisterInput!) {\nregister(input: $input) { message }\n      }`,\n    variables: { input: { email, password } }\n});\n// Login\nconst loginRes = await api.post('/graphql').send({\n    query: `mutation Login($input: LoginInput!) {\nlogin(input: $input) { token }\n      }`,\n    variables: { input: { email, password } }\n});\ntoken = loginRes.body.data.login.token;",
               "err": {},
-              "uuid": "5894cd7c-975e-48f3-91ac-b03e0a718c5e",
-              "parentUUID": "487c92c1-1e57-493b-a6d3-c87a9f0351d7",
+              "uuid": "72b43a7c-26a1-4f0c-894f-c2b23db3fe04",
+              "parentUUID": "ed57a88c-538f-4fab-9898-2da3886175b2",
               "isHook": true,
               "skipped": false
             }
@@ -247,7 +247,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "74c0c948-4d42-4a3a-a311-f42659e9982e",
+              "uuid": "e94ba580-5abf-43b4-b80d-b48b89781cda",
               "title": "Query todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/todo.test.js",
               "file": "/test/graphql/external/todo.test.js",
@@ -258,7 +258,7 @@
                   "title": "should return an array of todos for the authenticated user",
                   "fullTitle": "GraphQL Todo API Query todos should return an array of todos for the authenticated user",
                   "timedOut": false,
-                  "duration": 8,
+                  "duration": 9,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -267,26 +267,26 @@
                   "context": null,
                   "code": "// Create a todo first\nawait api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation CreateTodo($input: CreateTodoInput!) {\ncreateTodo(input: $input) {\n  id\n  title\n}\n          }`,\n        variables: {\n            input: { title: 'Test Todo for GET' }\n        }\n    });\nconst res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({ query: todosQuery });\nexpect(res.body.data.todos).to.be.an('array');\nexpect(res.body.data.todos.length).to.be.at.least(1);\nexpect(res.body.data.todos[0].title).to.equal('Test Todo for GET');",
                   "err": {},
-                  "uuid": "3715f609-832e-490a-9925-32bc0dee640b",
-                  "parentUUID": "74c0c948-4d42-4a3a-a311-f42659e9982e",
+                  "uuid": "3879ac98-3ec4-4619-b3da-a460db4a146e",
+                  "parentUUID": "e94ba580-5abf-43b4-b80d-b48b89781cda",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3715f609-832e-490a-9925-32bc0dee640b"
+                "3879ac98-3ec4-4619-b3da-a460db4a146e"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 8,
+              "duration": 9,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "07380f8e-91a2-4f1c-a828-5431fc0980bf",
+              "uuid": "b83d06d3-3681-43d4-b0fc-95219ad62d4d",
               "title": "Mutation createTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/todo.test.js",
               "file": "/test/graphql/external/todo.test.js",
@@ -306,8 +306,8 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: createTodoMutation,\n        variables: {\n            input: { title: 'New API Test Todo' }\n        }\n    });\nexpect(res.body.data.createTodo.title).to.equal('New API Test Todo');\nexpect(res.body.data.createTodo.completed).to.be.false;",
                   "err": {},
-                  "uuid": "84e3fcc0-b91a-4410-b177-2f1d9745e64c",
-                  "parentUUID": "07380f8e-91a2-4f1c-a828-5431fc0980bf",
+                  "uuid": "fe744818-87d7-47dd-9a6f-ccd093bd4468",
+                  "parentUUID": "b83d06d3-3681-43d4-b0fc-95219ad62d4d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -315,7 +315,7 @@
                   "title": "should validate required fields with GraphQL schema",
                   "fullTitle": "GraphQL Todo API Mutation createTodo should validate required fields with GraphQL schema",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -324,27 +324,27 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: createTodoMutation,\n        variables: {\n            input: { description: 'No title provided' }\n        }\n    });\nexpect(res.body.errors[0].message).to.include('Field \"title\" of required type \"String!\" was not provided');",
                   "err": {},
-                  "uuid": "6d7b94d3-e125-4849-88c0-212bd4a961ac",
-                  "parentUUID": "07380f8e-91a2-4f1c-a828-5431fc0980bf",
+                  "uuid": "ba66b5a1-043b-4eb3-9d84-57e47573385b",
+                  "parentUUID": "b83d06d3-3681-43d4-b0fc-95219ad62d4d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "84e3fcc0-b91a-4410-b177-2f1d9745e64c",
-                "6d7b94d3-e125-4849-88c0-212bd4a961ac"
+                "fe744818-87d7-47dd-9a6f-ccd093bd4468",
+                "ba66b5a1-043b-4eb3-9d84-57e47573385b"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 7,
+              "duration": 8,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "21a5fe05-3534-404c-a810-e76a63b636f5",
+              "uuid": "f8fa93c6-9d92-4b21-8ab4-18434729ffbe",
               "title": "Mutation updateTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/todo.test.js",
               "file": "/test/graphql/external/todo.test.js",
@@ -362,8 +362,8 @@
                   "context": null,
                   "code": "const createRes = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation CreateTodo($input: CreateTodoInput!) {\ncreateTodo(input: $input) {\n  id\n}\n          }`,\n        variables: {\n            input: { title: 'Todo to Update', description: 'Description' }\n        }\n    });\ntodoId = createRes.body.data.createTodo.id;",
                   "err": {},
-                  "uuid": "fd8670b2-1ab0-4ea3-8dd7-e516c4102b09",
-                  "parentUUID": "21a5fe05-3534-404c-a810-e76a63b636f5",
+                  "uuid": "9edf3cd2-c75f-4768-abe4-bab62aa4d61b",
+                  "parentUUID": "f8fa93c6-9d92-4b21-8ab4-18434729ffbe",
                   "isHook": true,
                   "skipped": false
                 }
@@ -374,7 +374,7 @@
                   "title": "should update a todo successfully",
                   "fullTitle": "GraphQL Todo API Mutation updateTodo should update a todo successfully",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -383,8 +383,8 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation UpdateTodo($id: ID!, $input: UpdateTodoInput!) {\nupdateTodo(id: $id, input: $input) {\n  id\n  title\n  description\n  completed\n}\n          }`,\n        variables: {\n            id: todoId,\n            input: {\n                title: 'Updated Title',\n                description: 'Updated Description',\n                completed: true\n            }\n        }\n    });\nexpect(res.body.data.updateTodo.title).to.equal('Updated Title');\nexpect(res.body.data.updateTodo.completed).to.be.true;",
                   "err": {},
-                  "uuid": "1bf5b1db-b92c-4800-a254-507177c8d1ba",
-                  "parentUUID": "21a5fe05-3534-404c-a810-e76a63b636f5",
+                  "uuid": "c9919081-3aeb-4cb3-a4f5-11e060cf16d8",
+                  "parentUUID": "f8fa93c6-9d92-4b21-8ab4-18434729ffbe",
                   "isHook": false,
                   "skipped": false
                 },
@@ -392,7 +392,7 @@
                   "title": "should return error if todo not found",
                   "fullTitle": "GraphQL Todo API Mutation updateTodo should return error if todo not found",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -401,27 +401,27 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation UpdateTodo($id: ID!, $input: UpdateTodoInput!) {\nupdateTodo(id: $id, input: $input) {\n  id\n  title\n}\n          }`,\n        variables: {\n            id: \"9999\",\n            input: { title: 'Does not matter' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "36ede008-38b1-4b20-939f-d5665bcf09cf",
-                  "parentUUID": "21a5fe05-3534-404c-a810-e76a63b636f5",
+                  "uuid": "e4e76685-c85c-45ac-a6a8-57a430a0e9bf",
+                  "parentUUID": "f8fa93c6-9d92-4b21-8ab4-18434729ffbe",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "1bf5b1db-b92c-4800-a254-507177c8d1ba",
-                "36ede008-38b1-4b20-939f-d5665bcf09cf"
+                "c9919081-3aeb-4cb3-a4f5-11e060cf16d8",
+                "e4e76685-c85c-45ac-a6a8-57a430a0e9bf"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 6,
+              "duration": 8,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "7a0c827a-0052-449f-9a16-0bfad330d1a7",
+              "uuid": "3d00748e-5cdb-46f4-8a6e-d53fa31eb603",
               "title": "Mutation deleteTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/external/todo.test.js",
               "file": "/test/graphql/external/todo.test.js",
@@ -441,8 +441,8 @@
                   "context": null,
                   "code": "// Create a todo first\nconst createRes = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation CreateTodo($input: CreateTodoInput!) {\ncreateTodo(input: $input) {\n  id\n}\n          }`,\n        variables: {\n            input: { title: 'Todo to be deleted' }\n        }\n    });\nconst todoId = createRes.body.data.createTodo.id;\nconst res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation DeleteTodo($id: ID!) {\ndeleteTodo(id: $id) {\n  message\n}\n          }`,\n        variables: { id: todoId }\n    });\nexpect(res.body.data.deleteTodo.message).to.equal('Tarefa excluída com sucesso');",
                   "err": {},
-                  "uuid": "24da4775-0094-4cae-950f-190d5331d941",
-                  "parentUUID": "7a0c827a-0052-449f-9a16-0bfad330d1a7",
+                  "uuid": "efd04cac-d9e2-420f-8048-c83486dc0ba3",
+                  "parentUUID": "3d00748e-5cdb-46f4-8a6e-d53fa31eb603",
                   "isHook": false,
                   "skipped": false
                 },
@@ -450,7 +450,7 @@
                   "title": "should return error if todo not found",
                   "fullTitle": "GraphQL Todo API Mutation deleteTodo should return error if todo not found",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 2,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -459,21 +459,21 @@
                   "context": null,
                   "code": "const res = await api\n    .post('/graphql')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        query: `mutation DeleteTodo($id: ID!) {\ndeleteTodo(id: $id) {\n  message\n}\n          }`,\n        variables: { id: \"9999\" }\n    });\nexpect(res.body.errors[0].message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "d0ba6d37-c5f4-4ad3-96a7-e23ecfeed067",
-                  "parentUUID": "7a0c827a-0052-449f-9a16-0bfad330d1a7",
+                  "uuid": "8470bf0a-d41e-449f-9b5a-baa419bf1a7a",
+                  "parentUUID": "3d00748e-5cdb-46f4-8a6e-d53fa31eb603",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "24da4775-0094-4cae-950f-190d5331d941",
-                "d0ba6d37-c5f4-4ad3-96a7-e23ecfeed067"
+                "efd04cac-d9e2-420f-8048-c83486dc0ba3",
+                "8470bf0a-d41e-449f-9b5a-baa419bf1a7a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 8,
+              "duration": 7,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
