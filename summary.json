@@ -1,0 +1,211 @@
+{
+    "metrics": {
+        "http_req_duration": {
+            "avg": 130.8159454380953,
+            "min": 0.89963,
+            "med": 121.964488,
+            "max": 889.320889,
+            "p(90)": 270.4639591,
+            "p(95)": 329.6595738999997,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "http_req_connecting": {
+            "max": 1.767453,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.025050619047619047,
+            "min": 0,
+            "med": 0
+        },
+        "iteration_duration": {
+            "med": 2392.1604589999997,
+            "max": 2968.007879,
+            "p(90)": 2511.756552,
+            "p(95)": 2673.2785231,
+            "avg": 2394.824425271429,
+            "min": 2191.561016
+        },
+        "http_req_blocked": {
+            "min": 0.00134,
+            "med": 0.004059,
+            "max": 2.021004,
+            "p(90)": 0.0050065,
+            "p(95)": 0.03903709999999973,
+            "avg": 0.04430986666666669
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 210,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_reqs": {
+            "count": 210,
+            "rate": 12.212313779916895
+        },
+        "http_req_waiting": {
+            "avg": 130.75926388095235,
+            "min": 0.864872,
+            "med": 121.9090505,
+            "max": 889.248112,
+            "p(90)": 270.4086746,
+            "p(95)": 329.60609334999975
+        },
+        "iterations": {
+            "count": 70,
+            "rate": 4.0707712599722985
+        },
+        "vus": {
+            "value": 2,
+            "min": 2,
+            "max": 10
+        },
+        "data_sent": {
+            "count": 64240,
+            "rate": 3735.804939151721
+        },
+        "data_received": {
+            "count": 79442,
+            "rate": 4619.860149067419
+        },
+        "checks": {
+            "passes": 420,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_sending": {
+            "p(95)": 0.049140899999999994,
+            "avg": 0.02035595714285714,
+            "min": 0.007036,
+            "med": 0.014901999999999999,
+            "max": 0.527335,
+            "p(90)": 0.020374499999999997
+        },
+        "vus_max": {
+            "value": 10,
+            "min": 10,
+            "max": 10
+        },
+        "group_duration": {
+            "avg": 131.01377018095238,
+            "min": 0.995254,
+            "med": 122.122993,
+            "max": 894.103441,
+            "p(90)": 270.56885209999996,
+            "p(95)": 329.77358684999973
+        },
+        "http_req_receiving": {
+            "p(95)": 0.05166919999999999,
+            "avg": 0.036325600000000006,
+            "min": 0.016322,
+            "med": 0.035445500000000005,
+            "max": 0.090243,
+            "p(90)": 0.048434
+        },
+        "todo_request_duration": {
+            "max": 143.492747,
+            "p(90)": 74.66721960000002,
+            "p(95)": 120.67198255,
+            "avg": 21.97481801428571,
+            "min": 0.89963,
+            "med": 1.312382,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(95)": 329.6595738999997,
+            "avg": 130.8159454380953,
+            "min": 0.89963,
+            "med": 121.964488,
+            "max": 889.320889,
+            "p(90)": 270.4639591
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "REGISTRATION": {
+                "path": "::REGISTRATION",
+                "id": "b21b7e977247283b47e808c40e6736a6",
+                "groups": {},
+                "checks": {
+                        "registration status 201": {
+                            "path": "::REGISTRATION::registration status 201",
+                            "id": "db2d24afbfe7a29e6a36053b64d8ca87",
+                            "passes": 70,
+                            "fails": 0,
+                            "name": "registration status 201"
+                        }
+                    },
+                "name": "REGISTRATION"
+            },
+            "LOGIN": {
+                "groups": {},
+                "checks": {
+                        "login status 200": {
+                            "name": "login status 200",
+                            "path": "::LOGIN::login status 200",
+                            "id": "b3f8a66e78a7c1a56c97b803e07945bf",
+                            "passes": 70,
+                            "fails": 0
+                        },
+                        "login response has token": {
+                            "fails": 0,
+                            "name": "login response has token",
+                            "path": "::LOGIN::login response has token",
+                            "id": "a1f8b3f558afbb0fd38be7d4bf325986",
+                            "passes": 70
+                        }
+                    },
+                "name": "LOGIN",
+                "path": "::LOGIN",
+                "id": "b9fdd02a32bfca55a6757f320ea7d136"
+            },
+            "CREATE TODO": {
+                "name": "CREATE TODO",
+                "path": "::CREATE TODO",
+                "id": "4103565219c317150a6ee925931adb17",
+                "groups": {},
+                "checks": {
+                        "todo creation status 201": {
+                            "name": "todo creation status 201",
+                            "path": "::CREATE TODO::todo creation status 201",
+                            "id": "33d11f0b87b78168b79efe0a445aeada",
+                            "passes": 70,
+                            "fails": 0
+                        },
+                        "todo response has id": {
+                            "passes": 70,
+                            "fails": 0,
+                            "name": "todo response has id",
+                            "path": "::CREATE TODO::todo response has id",
+                            "id": "74812953a10adbaf3ae4f51998f6f602"
+                        },
+                        "todo response has title": {
+                            "name": "todo response has title",
+                            "path": "::CREATE TODO::todo response has title",
+                            "id": "f37205fad6fcd364eb1acc27cd2aeff4",
+                            "passes": 70,
+                            "fails": 0
+                        }
+                    }
+            }
+        },
+        "checks": {}
+    }
+}
