@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2025-11-29T01:08:21.972Z",
-    "end": "2025-11-29T01:08:22.525Z",
-    "duration": 553,
+    "start": "2025-12-12T01:21:56.372Z",
+    "end": "2025-12-12T01:21:56.920Z",
+    "duration": 548,
     "testsRegistered": 13,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3f0502d7-a232-4abf-adb1-8ba09bc04403",
+      "uuid": "3a27cf6a-432d-4b32-9419-5f61ba918cab",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "03856751-8932-4ef9-8c8f-d24a3b145cc5",
+          "uuid": "2bdcc34a-b5a0-4f77-ade1-db2310e143da",
           "title": "GraphQL Auth",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/authController.test.js",
           "file": "/test/graphql/controller/authController.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"GraphQL Auth\"",
               "fullTitle": "GraphQL Auth \"before all\" hook in \"GraphQL Auth\"",
               "timedOut": false,
-              "duration": 34,
+              "duration": 33,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "app = await startServer();",
               "err": {},
-              "uuid": "920fde32-0f13-4af1-a03f-3c45eb662292",
-              "parentUUID": "03856751-8932-4ef9-8c8f-d24a3b145cc5",
+              "uuid": "c2970424-ea8b-4762-90d3-be47548df997",
+              "parentUUID": "2bdcc34a-b5a0-4f77-ade1-db2310e143da",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after each\" hook in \"GraphQL Auth\"",
               "fullTitle": "GraphQL Auth \"after each\" hook in \"GraphQL Auth\"",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "sinon.restore();",
               "err": {},
-              "uuid": "f21be97c-bb01-4c55-91ea-317b699e8ba4",
-              "parentUUID": "03856751-8932-4ef9-8c8f-d24a3b145cc5",
+              "uuid": "d8ae10dd-86eb-474d-9f4f-c9fb6c81e823",
+              "parentUUID": "2bdcc34a-b5a0-4f77-ade1-db2310e143da",
               "isHook": true,
               "skipped": false
             }
@@ -74,7 +74,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "c0977fc0-f587-4937-8b59-a832fa657897",
+              "uuid": "f37bcecf-f8d3-4b20-a814-d666a66004db",
               "title": "Mutation register",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/authController.test.js",
               "file": "/test/graphql/controller/authController.test.js",
@@ -85,7 +85,7 @@
                   "title": "should register a new user successfully",
                   "fullTitle": "GraphQL Auth Mutation register should register a new user successfully",
                   "timedOut": false,
-                  "duration": 125,
+                  "duration": 126,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -94,8 +94,8 @@
                   "context": null,
                   "code": "sinon.stub(UserModel, 'findByEmail').returns(null);\nconst createUserStub = sinon.stub(UserModel, 'createUser').returns({ id: 1, email: 'testuser@example.com' });\nconst res = await request(app)\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email: 'testuser@example.com', password: 'password123' }\n        }\n    });\nexpect(res.body.data.register.message).to.equal('Usuário cadastrado com sucesso');\nexpect(createUserStub.calledOnce).to.be.true;",
                   "err": {},
-                  "uuid": "c86947ba-9f38-4623-abe3-445d7dd0a62b",
-                  "parentUUID": "c0977fc0-f587-4937-8b59-a832fa657897",
+                  "uuid": "c70cce56-efb3-4dce-aedb-e9dd2aae2ff3",
+                  "parentUUID": "f37bcecf-f8d3-4b20-a814-d666a66004db",
                   "isHook": false,
                   "skipped": false
                 },
@@ -112,8 +112,8 @@
                   "context": null,
                   "code": "sinon.stub(UserModel, 'findByEmail').returns({ id: 1, email: 'testuser@example.com' });\nconst res = await request(app)\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: { email: 'testuser@example.com', password: 'password123' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('O usuário já existe');",
                   "err": {},
-                  "uuid": "4d9d96a1-8624-43ad-8fe6-aae143d6c5b6",
-                  "parentUUID": "c0977fc0-f587-4937-8b59-a832fa657897",
+                  "uuid": "b611a5f5-1159-42e5-800a-dfc04413efc3",
+                  "parentUUID": "f37bcecf-f8d3-4b20-a814-d666a66004db",
                   "isHook": false,
                   "skipped": false
                 },
@@ -121,7 +121,7 @@
                   "title": "should validate required fields with GraphQL schema",
                   "fullTitle": "GraphQL Auth Mutation register should validate required fields with GraphQL schema",
                   "timedOut": false,
-                  "duration": 4,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -130,17 +130,17 @@
                   "context": null,
                   "code": "const res = await request(app)\n    .post('/graphql')\n    .send({\n        query: registerMutation,\n        variables: {\n            input: {}\n        }\n    });\nexpect(res.body.errors[0].message).to.include('Field \"email\" of required type \"String!\" was not provided');",
                   "err": {},
-                  "uuid": "2894cb53-c122-4cae-82da-3560884dae1d",
-                  "parentUUID": "c0977fc0-f587-4937-8b59-a832fa657897",
+                  "uuid": "b5d2b5e3-a41f-4c50-9cbc-2795ce9843ed",
+                  "parentUUID": "f37bcecf-f8d3-4b20-a814-d666a66004db",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c86947ba-9f38-4623-abe3-445d7dd0a62b",
-                "4d9d96a1-8624-43ad-8fe6-aae143d6c5b6",
-                "2894cb53-c122-4cae-82da-3560884dae1d"
+                "c70cce56-efb3-4dce-aedb-e9dd2aae2ff3",
+                "b611a5f5-1159-42e5-800a-dfc04413efc3",
+                "b5d2b5e3-a41f-4c50-9cbc-2795ce9843ed"
               ],
               "failures": [],
               "pending": [],
@@ -151,7 +151,7 @@
               "_timeout": 10000
             },
             {
-              "uuid": "62b25c42-7f6b-4f09-81de-454146bfb1ac",
+              "uuid": "f34b3cce-0a38-44f2-a804-920d08475f26",
               "title": "Mutation login",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/authController.test.js",
               "file": "/test/graphql/controller/authController.test.js",
@@ -162,7 +162,7 @@
                   "title": "should login successfully and return a token",
                   "fullTitle": "GraphQL Auth Mutation login should login successfully and return a token",
                   "timedOut": false,
-                  "duration": 173,
+                  "duration": 172,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -171,8 +171,8 @@
                   "context": null,
                   "code": "const hashedPassword = await bcrypt.hash('password123', 10);\nconst user = { id: 1, email: 'testuser@example.com', password: hashedPassword };\nsinon.stub(UserModel, 'findByEmail').returns(user);\nconst res = await request(app)\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email: 'testuser@example.com', password: 'password123' }\n        }\n    });\nexpect(res.body.data.login).to.have.property('token');",
                   "err": {},
-                  "uuid": "fd350d47-e378-49e2-81d3-c1c794297439",
-                  "parentUUID": "62b25c42-7f6b-4f09-81de-454146bfb1ac",
+                  "uuid": "f010010c-71fe-4351-bfb0-8514da6ef0a9",
+                  "parentUUID": "f34b3cce-0a38-44f2-a804-920d08475f26",
                   "isHook": false,
                   "skipped": false
                 },
@@ -180,7 +180,7 @@
                   "title": "should return error for invalid credentials (user not found)",
                   "fullTitle": "GraphQL Auth Mutation login should return error for invalid credentials (user not found)",
                   "timedOut": false,
-                  "duration": 4,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -189,8 +189,8 @@
                   "context": null,
                   "code": "sinon.stub(UserModel, 'findByEmail').returns(null);\nconst res = await request(app)\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email: 'wronguser@example.com', password: 'password123' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "c053f06f-d57c-4a63-8db5-ae6215788379",
-                  "parentUUID": "62b25c42-7f6b-4f09-81de-454146bfb1ac",
+                  "uuid": "954f3ba0-a272-435a-b144-8bee6054129c",
+                  "parentUUID": "f34b3cce-0a38-44f2-a804-920d08475f26",
                   "isHook": false,
                   "skipped": false
                 },
@@ -198,7 +198,7 @@
                   "title": "should return error for invalid credentials (wrong password)",
                   "fullTitle": "GraphQL Auth Mutation login should return error for invalid credentials (wrong password)",
                   "timedOut": false,
-                  "duration": 168,
+                  "duration": 167,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -207,22 +207,22 @@
                   "context": null,
                   "code": "const hashedPassword = await bcrypt.hash('password123', 10);\nconst user = { id: 1, email: 'testuser@example.com', password: hashedPassword };\nsinon.stub(UserModel, 'findByEmail').returns(user);\nconst res = await request(app)\n    .post('/graphql')\n    .send({\n        query: loginMutation,\n        variables: {\n            input: { email: 'testuser@example.com', password: 'wrongpassword' }\n        }\n    });\nexpect(res.body.errors[0].message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "c56bfdd5-1cfe-4a20-91ad-fa1b372d374e",
-                  "parentUUID": "62b25c42-7f6b-4f09-81de-454146bfb1ac",
+                  "uuid": "1bec50b4-1c84-4ba5-9ed1-be87376ff864",
+                  "parentUUID": "f34b3cce-0a38-44f2-a804-920d08475f26",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "fd350d47-e378-49e2-81d3-c1c794297439",
-                "c053f06f-d57c-4a63-8db5-ae6215788379",
-                "c56bfdd5-1cfe-4a20-91ad-fa1b372d374e"
+                "f010010c-71fe-4351-bfb0-8514da6ef0a9",
+                "954f3ba0-a272-435a-b144-8bee6054129c",
+                "1bec50b4-1c84-4ba5-9ed1-be87376ff864"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 345,
+              "duration": 342,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
@@ -238,7 +238,7 @@
           "_timeout": 10000
         },
         {
-          "uuid": "77e8b879-e1df-4918-811a-a755f088e3f7",
+          "uuid": "4c91183d-2c13-4365-94b8-fcbe5bdfc1f5",
           "title": "GraphQL Todo",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/todoController.test.js",
           "file": "/test/graphql/controller/todoController.test.js",
@@ -256,8 +256,8 @@
               "context": null,
               "code": "app = await startServer();",
               "err": {},
-              "uuid": "0cb54775-00bc-46db-800b-ef5534162d10",
-              "parentUUID": "77e8b879-e1df-4918-811a-a755f088e3f7",
+              "uuid": "336eb93e-127f-4708-89a4-05f543bae77c",
+              "parentUUID": "4c91183d-2c13-4365-94b8-fcbe5bdfc1f5",
               "isHook": true,
               "skipped": false
             },
@@ -274,8 +274,8 @@
               "context": null,
               "code": "sinon.stub(jwt, 'verify').returns(fakeUser);",
               "err": {},
-              "uuid": "783ff93d-a7cb-45b9-a7ad-12acec36f0a0",
-              "parentUUID": "77e8b879-e1df-4918-811a-a755f088e3f7",
+              "uuid": "6b36b298-9a53-45ad-88d2-49e6aeaa5680",
+              "parentUUID": "4c91183d-2c13-4365-94b8-fcbe5bdfc1f5",
               "isHook": true,
               "skipped": false
             }
@@ -294,8 +294,8 @@
               "context": null,
               "code": "sinon.restore();",
               "err": {},
-              "uuid": "f3f7410e-da0e-4832-ba49-ee03cfd0c34a",
-              "parentUUID": "77e8b879-e1df-4918-811a-a755f088e3f7",
+              "uuid": "4eeffab4-a792-4700-840d-29565a4b2709",
+              "parentUUID": "4c91183d-2c13-4365-94b8-fcbe5bdfc1f5",
               "isHook": true,
               "skipped": false
             }
@@ -303,7 +303,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "ec870dc0-7c48-4483-b3c5-67b63cbef6e8",
+              "uuid": "fd4b99b2-1b2f-4caa-a5ce-677883ab77f1",
               "title": "Query todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/todoController.test.js",
               "file": "/test/graphql/controller/todoController.test.js",
@@ -314,7 +314,7 @@
                   "title": "should return only todos belonging to the authenticated user",
                   "fullTitle": "GraphQL Todo Query todos should return only todos belonging to the authenticated user",
                   "timedOut": false,
-                  "duration": 8,
+                  "duration": 5,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -323,26 +323,26 @@
                   "context": null,
                   "code": "const userTodos = [{ id: 1, userId: fakeUser.id, title: 'User 1 Todo', completed: false, createdAt: new Date().toISOString() }];\nsinon.stub(TodoModel, 'findAllByUserId').withArgs(fakeUser.id).returns(userTodos);\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({ query: todosQuery });\nexpect(res.body.data.todos).to.be.an('array').with.lengthOf(1);\nexpect(res.body.data.todos[0].title).to.equal('User 1 Todo');\nexpect(TodoModel.findAllByUserId.calledWith(fakeUser.id)).to.be.true;",
                   "err": {},
-                  "uuid": "347e2c51-8526-40f6-985f-ec8b35bcfd67",
-                  "parentUUID": "ec870dc0-7c48-4483-b3c5-67b63cbef6e8",
+                  "uuid": "3de6306e-c5c1-43cc-80aa-f86dce2866b5",
+                  "parentUUID": "fd4b99b2-1b2f-4caa-a5ce-677883ab77f1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "347e2c51-8526-40f6-985f-ec8b35bcfd67"
+                "3de6306e-c5c1-43cc-80aa-f86dce2866b5"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 8,
+              "duration": 5,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "a818baaa-bc99-4c10-95d1-b6e82412bcd9",
+              "uuid": "275044d9-8f2b-4911-95a3-97c17a3a1ea7",
               "title": "Mutation createTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/todoController.test.js",
               "file": "/test/graphql/controller/todoController.test.js",
@@ -353,7 +353,7 @@
                   "title": "should create a new todo for the authenticated user",
                   "fullTitle": "GraphQL Todo Mutation createTodo should create a new todo for the authenticated user",
                   "timedOut": false,
-                  "duration": 6,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -362,8 +362,8 @@
                   "context": null,
                   "code": "const newTodo = { title: 'New Test Todo', description: 'A description' };\nconst createdTodo = { id: 10, userId: fakeUser.id, ...newTodo, completed: false, createdAt: new Date() };\nsinon.stub(TodoModel, 'create').returns(createdTodo);\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: createTodoMutation,\n        variables: { input: newTodo }\n    });\nexpect(res.body.data.createTodo.title).to.equal(newTodo.title);\nexpect(res.body.data.createTodo.userId).to.equal(String(fakeUser.id));\nexpect(TodoModel.create.calledWith(sinon.match({ userId: fakeUser.id, title: newTodo.title }))).to.be.true;",
                   "err": {},
-                  "uuid": "ace5bcd5-74b1-4495-acfb-ad22eb669aa7",
-                  "parentUUID": "a818baaa-bc99-4c10-95d1-b6e82412bcd9",
+                  "uuid": "27fa00ae-c2eb-4df4-9787-5a217a429d62",
+                  "parentUUID": "275044d9-8f2b-4911-95a3-97c17a3a1ea7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -380,27 +380,27 @@
                   "context": null,
                   "code": "const res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: createTodoMutation,\n        variables: { input: { description: 'A description' } }\n    });\nexpect(res.body.errors[0].message).to.include('Field \"title\" of required type \"String!\" was not provided');",
                   "err": {},
-                  "uuid": "b90c2a7e-cf52-428e-a39c-5ff662afbcfb",
-                  "parentUUID": "a818baaa-bc99-4c10-95d1-b6e82412bcd9",
+                  "uuid": "250239f7-5cd3-4061-821f-a2e29600457a",
+                  "parentUUID": "275044d9-8f2b-4911-95a3-97c17a3a1ea7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "ace5bcd5-74b1-4495-acfb-ad22eb669aa7",
-                "b90c2a7e-cf52-428e-a39c-5ff662afbcfb"
+                "27fa00ae-c2eb-4df4-9787-5a217a429d62",
+                "250239f7-5cd3-4061-821f-a2e29600457a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 9,
+              "duration": 7,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "dc5f9c55-e72f-4641-ae63-d437e7d216eb",
+              "uuid": "43767620-28e3-4879-a47f-f9cf5c17763f",
               "title": "Mutation updateTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/todoController.test.js",
               "file": "/test/graphql/controller/todoController.test.js",
@@ -420,8 +420,8 @@
                   "context": null,
                   "code": "const todoId = \"1\";\nconst updatedData = { title: 'Updated Title', completed: true };\nconst updatedTodo = { id: Number(todoId), userId: fakeUser.id, ...updatedData };\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(Number(todoId), fakeUser.id).returns(0);\nsinon.stub(TodoModel, 'update').returns(updatedTodo);\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: updateTodoMutation,\n        variables: { id: todoId, input: updatedData }\n    });\nexpect(res.body.data.updateTodo.title).to.equal(updatedData.title);\nexpect(res.body.data.updateTodo.completed).to.be.true;",
                   "err": {},
-                  "uuid": "a015b743-9782-4b9e-ae8d-96db780e52c8",
-                  "parentUUID": "dc5f9c55-e72f-4641-ae63-d437e7d216eb",
+                  "uuid": "b4bdc7ce-f3cb-405e-aedb-3e6e888178d0",
+                  "parentUUID": "43767620-28e3-4879-a47f-f9cf5c17763f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -429,7 +429,7 @@
                   "title": "should return error if todo not found",
                   "fullTitle": "GraphQL Todo Mutation updateTodo should return error if todo not found",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -438,27 +438,27 @@
                   "context": null,
                   "code": "const todoId = \"99\";\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(Number(todoId), fakeUser.id).returns(-1);\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: updateTodoMutation,\n        variables: { id: todoId, input: { title: 'Does not matter' } }\n    });\nexpect(res.body.errors[0].message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "490e386c-3c1f-4cdc-b5ad-b71f9d724587",
-                  "parentUUID": "dc5f9c55-e72f-4641-ae63-d437e7d216eb",
+                  "uuid": "ae3b79aa-f0ea-4915-b578-a6c7e95653c1",
+                  "parentUUID": "43767620-28e3-4879-a47f-f9cf5c17763f",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "a015b743-9782-4b9e-ae8d-96db780e52c8",
-                "490e386c-3c1f-4cdc-b5ad-b71f9d724587"
+                "b4bdc7ce-f3cb-405e-aedb-3e6e888178d0",
+                "ae3b79aa-f0ea-4915-b578-a6c7e95653c1"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 7,
+              "duration": 8,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "a40e312b-a6e0-4d44-a907-9d343cbb75cc",
+              "uuid": "1e8cbaa2-c061-4081-bcee-5d142ca87320",
               "title": "Mutation deleteTodo",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/graphql/controller/todoController.test.js",
               "file": "/test/graphql/controller/todoController.test.js",
@@ -469,7 +469,7 @@
                   "title": "should delete a todo successfully",
                   "fullTitle": "GraphQL Todo Mutation deleteTodo should delete a todo successfully",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -478,8 +478,8 @@
                   "context": null,
                   "code": "const todoId = \"1\";\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(Number(todoId), fakeUser.id).returns(0);\nconst removeStub = sinon.stub(TodoModel, 'remove');\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: deleteTodoMutation,\n        variables: { id: todoId }\n    });\nexpect(res.body.data.deleteTodo.message).to.equal('Tarefa excluída com sucesso');\nexpect(removeStub.calledOnce).to.be.true;",
                   "err": {},
-                  "uuid": "a6bb863a-b718-407f-a05f-142e2e4383a4",
-                  "parentUUID": "a40e312b-a6e0-4d44-a907-9d343cbb75cc",
+                  "uuid": "248cf368-3834-4490-baa0-3267607ebeda",
+                  "parentUUID": "1e8cbaa2-c061-4081-bcee-5d142ca87320",
                   "isHook": false,
                   "skipped": false
                 },
@@ -496,21 +496,21 @@
                   "context": null,
                   "code": "const todoId = \"99\";\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(Number(todoId), fakeUser.id).returns(-1);\nconst res = await request(app)\n    .post('/graphql')\n    .set('Authorization', `Bearer ${fakeToken}`)\n    .send({\n        query: deleteTodoMutation,\n        variables: { id: todoId }\n    });\nexpect(res.body.errors[0].message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "3598e6f7-f6fe-4133-90a7-54a6cf243018",
-                  "parentUUID": "a40e312b-a6e0-4d44-a907-9d343cbb75cc",
+                  "uuid": "25ed3467-14c2-4b41-92d1-38f024f78d3f",
+                  "parentUUID": "1e8cbaa2-c061-4081-bcee-5d142ca87320",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "a6bb863a-b718-407f-a05f-142e2e4383a4",
-                "3598e6f7-f6fe-4133-90a7-54a6cf243018"
+                "248cf368-3834-4490-baa0-3267607ebeda",
+                "25ed3467-14c2-4b41-92d1-38f024f78d3f"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 6,
+              "duration": 7,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000

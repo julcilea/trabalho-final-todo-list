@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2025-11-29T01:08:20.575Z",
-    "end": "2025-11-29T01:08:21.373Z",
-    "duration": 798,
+    "start": "2025-12-12T01:21:55.046Z",
+    "end": "2025-12-12T01:21:55.813Z",
+    "duration": 767,
     "testsRegistered": 13,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "31a3fb7d-8986-449c-9880-27d173d6d1b1",
+      "uuid": "43e17b53-1b5e-4125-84b1-2333ba09be70",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6e18cd96-b566-458d-a66a-0be2379bddfa",
+          "uuid": "c33053c1-e372-45fa-b4b3-c6c0da706e29",
           "title": "Auth API",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/auth.test.js",
           "file": "/test/rest/external/auth.test.js",
@@ -45,8 +45,8 @@
               "context": null,
               "code": "User.clear();\nTodo.clear();",
               "err": {},
-              "uuid": "42869160-0dab-415e-8b77-32756a5b2c43",
-              "parentUUID": "6e18cd96-b566-458d-a66a-0be2379bddfa",
+              "uuid": "1937cb67-c3c4-4512-95e4-fffbde86bbce",
+              "parentUUID": "c33053c1-e372-45fa-b4b3-c6c0da706e29",
               "isHook": true,
               "skipped": false
             }
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "bb65e4c2-bd21-4bab-a4cf-37a4a2c6b849",
+              "uuid": "81f4d891-2725-45d3-a28f-f513d297d83a",
               "title": "POST /auth/register",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/auth.test.js",
               "file": "/test/rest/external/auth.test.js",
@@ -66,7 +66,7 @@
                   "title": "should register a new user successfully",
                   "fullTitle": "Auth API POST /auth/register should register a new user successfully",
                   "timedOut": false,
-                  "duration": 125,
+                  "duration": 126,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "User.clear();\nconst res = await api\n  .post('/auth/register')\n  .send({ email: `test_get_todos_${Date.now()}@teste.com`, password: \"123456\" });\nexpect(res.status).to.equal(201);\nexpect(res.body.message).to.equal('Usuário cadastrado com sucesso');",
                   "err": {},
-                  "uuid": "2de71ac7-e7b0-4e4b-9140-05b1d7f62403",
-                  "parentUUID": "bb65e4c2-bd21-4bab-a4cf-37a4a2c6b849",
+                  "uuid": "dc1dde96-58e2-4e5c-a511-e1b7e61909d8",
+                  "parentUUID": "81f4d891-2725-45d3-a28f-f513d297d83a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -93,8 +93,8 @@
                   "context": null,
                   "code": "User.clear();\nawait api\n  .post('/auth/register')\n  .send({ email: 'duplicate@teste.com', password: '123456' });\nconst res = await api\n  .post('/auth/register')\n  .send({ email: 'duplicate@teste.com', password: '123456' });\nexpect(res.status).to.equal(409);\nexpect(res.body.message).to.equal('O usuário já existe');",
                   "err": {},
-                  "uuid": "df714b91-c105-4521-8a01-a061febee22d",
-                  "parentUUID": "bb65e4c2-bd21-4bab-a4cf-37a4a2c6b849",
+                  "uuid": "01b6e31a-f0cd-4209-8779-60c67a8269e7",
+                  "parentUUID": "81f4d891-2725-45d3-a28f-f513d297d83a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -102,7 +102,7 @@
                   "title": "should return 400 if email or password are not provided",
                   "fullTitle": "Auth API POST /auth/register should return 400 if email or password are not provided",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -111,28 +111,28 @@
                   "context": null,
                   "code": "const res = await api\n  .post('/auth/register')\n  .send({ email: 'teste@teste.com' });\nexpect(res.status).to.equal(400);\nexpect(res.body.message).to.equal('Email e senha são obrigatórios');",
                   "err": {},
-                  "uuid": "3ba5aeb4-f841-495a-b857-8cf7f0c680eb",
-                  "parentUUID": "bb65e4c2-bd21-4bab-a4cf-37a4a2c6b849",
+                  "uuid": "572d5897-2c7f-46dd-ac54-e01c08ee129c",
+                  "parentUUID": "81f4d891-2725-45d3-a28f-f513d297d83a",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2de71ac7-e7b0-4e4b-9140-05b1d7f62403",
-                "df714b91-c105-4521-8a01-a061febee22d",
-                "3ba5aeb4-f841-495a-b857-8cf7f0c680eb"
+                "dc1dde96-58e2-4e5c-a511-e1b7e61909d8",
+                "01b6e31a-f0cd-4209-8779-60c67a8269e7",
+                "572d5897-2c7f-46dd-ac54-e01c08ee129c"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 215,
+              "duration": 217,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "41ac25a3-3c56-4e44-8fd5-4139276168b9",
+              "uuid": "eda01e97-f45f-4128-bc04-1647d7fe6479",
               "title": "POST /auth/login",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/auth.test.js",
               "file": "/test/rest/external/auth.test.js",
@@ -143,7 +143,7 @@
                   "title": "should login successfully and return a token",
                   "fullTitle": "Auth API POST /auth/login should login successfully and return a token",
                   "timedOut": false,
-                  "duration": 200,
+                  "duration": 170,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -152,8 +152,8 @@
                   "context": null,
                   "code": "User.clear();\nconst email = `test_login_success_${Date.now()}@teste.com`;\nconst password = '123456';\nawait api\n  .post('/auth/register')\n  .send({ email, password });\nconst res = await api\n  .post('/auth/login')\n  .send({ email, password });\nexpect(res.status).to.equal(200);\nexpect(res.body).to.have.property('token');",
                   "err": {},
-                  "uuid": "326d9f59-b745-4985-974d-02414e87705f",
-                  "parentUUID": "41ac25a3-3c56-4e44-8fd5-4139276168b9",
+                  "uuid": "e7440e1f-d385-479a-a6aa-8be569638387",
+                  "parentUUID": "eda01e97-f45f-4128-bc04-1647d7fe6479",
                   "isHook": false,
                   "skipped": false
                 },
@@ -170,8 +170,8 @@
                   "context": null,
                   "code": "User.clear();\nconst res = await api\n  .post('/auth/login')\n  .send({ email: `nonexistent_${Date.now()}@teste.com`, password: '123456' });\nexpect(res.status).to.equal(401);\nexpect(res.body.message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "a32fe7d8-d647-4e83-a1d7-edf9fb9a5764",
-                  "parentUUID": "41ac25a3-3c56-4e44-8fd5-4139276168b9",
+                  "uuid": "ea22b466-a51b-4c62-866a-b0da5af84288",
+                  "parentUUID": "eda01e97-f45f-4128-bc04-1647d7fe6479",
                   "isHook": false,
                   "skipped": false
                 },
@@ -179,7 +179,7 @@
                   "title": "should return 401 for invalid credentials (wrong password)",
                   "fullTitle": "Auth API POST /auth/login should return 401 for invalid credentials (wrong password)",
                   "timedOut": false,
-                  "duration": 171,
+                  "duration": 169,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -188,22 +188,22 @@
                   "context": null,
                   "code": "User.clear();\nconst email = `test_login_wrong_pwd_${Date.now()}@teste.com`;\nconst password = '123456';\nawait api\n  .post('/auth/register')\n  .send({ email, password });\nconst res = await api\n  .post('/auth/login')\n  .send({ email, password: 'wrongpassword' });\nexpect(res.status).to.equal(401);\nexpect(res.body.message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "52351bca-0750-409b-95d9-57681aa94319",
-                  "parentUUID": "41ac25a3-3c56-4e44-8fd5-4139276168b9",
+                  "uuid": "26d2b1a3-a859-479e-9036-89ac9c32545e",
+                  "parentUUID": "eda01e97-f45f-4128-bc04-1647d7fe6479",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "326d9f59-b745-4985-974d-02414e87705f",
-                "a32fe7d8-d647-4e83-a1d7-edf9fb9a5764",
-                "52351bca-0750-409b-95d9-57681aa94319"
+                "e7440e1f-d385-479a-a6aa-8be569638387",
+                "ea22b466-a51b-4c62-866a-b0da5af84288",
+                "26d2b1a3-a859-479e-9036-89ac9c32545e"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 373,
+              "duration": 341,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
@@ -219,7 +219,7 @@
           "_timeout": 10000
         },
         {
-          "uuid": "a65a5305-1923-421f-9c72-1f2f50aebdb2",
+          "uuid": "8fda5232-c734-4ddc-abc3-909f642c6d7c",
           "title": "To-Do API",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/todo.test.js",
           "file": "/test/rest/external/todo.test.js",
@@ -237,8 +237,8 @@
               "context": null,
               "code": "User.clear();\nTodo.clear();\nconst email = `test_get_todos_${Date.now()}@teste.com`;\nconst password = 'password123';\nawait api.post('/auth/register').send({ email, password });\nconst loginRes = await api.post('/auth/login').send({ email, password });\ntoken = loginRes.body.token;",
               "err": {},
-              "uuid": "80cc94f8-efaa-419c-aa06-596078a93ec6",
-              "parentUUID": "a65a5305-1923-421f-9c72-1f2f50aebdb2",
+              "uuid": "53c220c2-9c71-4dc2-8849-61d4251d94c6",
+              "parentUUID": "8fda5232-c734-4ddc-abc3-909f642c6d7c",
               "isHook": true,
               "skipped": false
             }
@@ -247,7 +247,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "5a9d19e5-5b92-4a7e-b859-eaa331b12ae1",
+              "uuid": "3d6af9d3-744f-4949-9b05-512d9d7749b6",
               "title": "GET /todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/todo.test.js",
               "file": "/test/rest/external/todo.test.js",
@@ -267,15 +267,15 @@
                   "context": null,
                   "code": "await api\n  .post('/todos')\n  .set('Authorization', `Bearer ${token}`)\n  .send({ title: 'Test Todo for GET' });\nconst res = await api\n  .get('/todos')\n  .set('Authorization', `Bearer ${token}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an('array');\nexpect(res.body.length).to.be.at.least(1);\nexpect(res.body[0].title).to.equal('Test Todo for GET');",
                   "err": {},
-                  "uuid": "c692ee5b-1fdd-4c8d-9fc9-ca5eb2cf3d30",
-                  "parentUUID": "5a9d19e5-5b92-4a7e-b859-eaa331b12ae1",
+                  "uuid": "9c7c0644-f333-49ae-945d-3543443315c9",
+                  "parentUUID": "3d6af9d3-744f-4949-9b05-512d9d7749b6",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c692ee5b-1fdd-4c8d-9fc9-ca5eb2cf3d30"
+                "9c7c0644-f333-49ae-945d-3543443315c9"
               ],
               "failures": [],
               "pending": [],
@@ -286,7 +286,7 @@
               "_timeout": 10000
             },
             {
-              "uuid": "e26ffcf4-630f-4c34-8f70-2cab6c674363",
+              "uuid": "36986526-c025-4ab6-be8c-1febd8727c01",
               "title": "POST /todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/todo.test.js",
               "file": "/test/rest/external/todo.test.js",
@@ -297,7 +297,7 @@
                   "title": "should create a new todo",
                   "fullTitle": "To-Do API POST /todos should create a new todo",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 3,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -306,8 +306,8 @@
                   "context": null,
                   "code": "const newTodo = { title: 'New API Test Todo' };\nconst res = await api\n  .post('/todos')\n  .set('Authorization', `Bearer ${token}`)\n  .send(newTodo);\nexpect(res.status).to.equal(201);\nexpect(res.body.title).to.equal(newTodo.title);",
                   "err": {},
-                  "uuid": "46080109-0d71-476b-8d09-9720f8034f53",
-                  "parentUUID": "e26ffcf4-630f-4c34-8f70-2cab6c674363",
+                  "uuid": "181704ba-2db0-452b-9b0b-2d7f11794c97",
+                  "parentUUID": "36986526-c025-4ab6-be8c-1febd8727c01",
                   "isHook": false,
                   "skipped": false
                 },
@@ -324,27 +324,27 @@
                   "context": null,
                   "code": "const res = await api\n  .post('/todos')\n  .set('Authorization', `Bearer ${token}`)\n  .send({ description: 'No title provided' });\nexpect(res.status).to.equal(400);\nexpect(res.body.message).to.equal('Titulo é obrigatório');",
                   "err": {},
-                  "uuid": "e37d750a-a481-4a55-af61-252b282307f7",
-                  "parentUUID": "e26ffcf4-630f-4c34-8f70-2cab6c674363",
+                  "uuid": "db16a324-e402-45f1-86f0-9f7e0f44e223",
+                  "parentUUID": "36986526-c025-4ab6-be8c-1febd8727c01",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "46080109-0d71-476b-8d09-9720f8034f53",
-                "e37d750a-a481-4a55-af61-252b282307f7"
+                "181704ba-2db0-452b-9b0b-2d7f11794c97",
+                "db16a324-e402-45f1-86f0-9f7e0f44e223"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 5,
+              "duration": 6,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "4f4b6df8-9101-492e-addf-2c2a3836867d",
+              "uuid": "1ede1366-a967-4f50-85d0-512cb3bf309e",
               "title": "PUT /todos/:id",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/todo.test.js",
               "file": "/test/rest/external/todo.test.js",
@@ -353,7 +353,7 @@
                   "title": "\"before each\" hook in \"PUT /todos/:id\"",
                   "fullTitle": "To-Do API PUT /todos/:id \"before each\" hook in \"PUT /todos/:id\"",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 3,
                   "state": null,
                   "speed": null,
                   "pass": false,
@@ -362,8 +362,8 @@
                   "context": null,
                   "code": "const newTodo = { title: 'New API Test Todo', description: 'Description' };\nconst createRes = await api\n  .post('/todos')\n  .set('Authorization', `Bearer ${token}`)\n  .send(newTodo);\ntodoId = createRes.body.id;",
                   "err": {},
-                  "uuid": "b118e620-e430-4c5a-9366-fd4a324e5a13",
-                  "parentUUID": "4f4b6df8-9101-492e-addf-2c2a3836867d",
+                  "uuid": "cf621b88-142d-4fe1-a1cf-dd2214abc765",
+                  "parentUUID": "1ede1366-a967-4f50-85d0-512cb3bf309e",
                   "isHook": true,
                   "skipped": false
                 }
@@ -383,8 +383,8 @@
                   "context": null,
                   "code": "const updatedData = { title: 'Updated Title', description: 'Updated Description', completed: true };\nconst res = await api\n  .put(`/todos/${todoId}`)\n  .set('Authorization', `Bearer ${token}`)\n  .send(updatedData);\nexpect(res.status).to.equal(200);\nexpect(res.body.title).to.equal(updatedData.title);\nexpect(res.body.completed).to.be.true;",
                   "err": {},
-                  "uuid": "230af9f8-6abf-43b4-a17b-ead19f9613f9",
-                  "parentUUID": "4f4b6df8-9101-492e-addf-2c2a3836867d",
+                  "uuid": "bde24bf1-d206-44af-a153-3980339b6627",
+                  "parentUUID": "1ede1366-a967-4f50-85d0-512cb3bf309e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -392,7 +392,7 @@
                   "title": "should return 404 if todo not found",
                   "fullTitle": "To-Do API PUT /todos/:id should return 404 if todo not found",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 2,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -401,27 +401,27 @@
                   "context": null,
                   "code": "const nonExistentId = 9999;\nconst res = await api\n  .put(`/todos/${nonExistentId}`)\n  .set('Authorization', `Bearer ${token}`)\n  .send({ title: 'Does not matter' });\nexpect(res.status).to.equal(404);\nexpect(res.body.message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "4775f579-401e-44a3-8dbb-32cd1423be9c",
-                  "parentUUID": "4f4b6df8-9101-492e-addf-2c2a3836867d",
+                  "uuid": "92ecd4fa-d0bf-4ac9-ba10-abfc94b9dac9",
+                  "parentUUID": "1ede1366-a967-4f50-85d0-512cb3bf309e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "230af9f8-6abf-43b4-a17b-ead19f9613f9",
-                "4775f579-401e-44a3-8dbb-32cd1423be9c"
+                "bde24bf1-d206-44af-a153-3980339b6627",
+                "92ecd4fa-d0bf-4ac9-ba10-abfc94b9dac9"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 6,
+              "duration": 5,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "bde5dd79-1913-4d6c-88b1-a25eaa10018c",
+              "uuid": "9f114aa0-e006-4f31-8f37-400b4b7bb7c1",
               "title": "DELETE /todos/:id",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/external/todo.test.js",
               "file": "/test/rest/external/todo.test.js",
@@ -441,8 +441,8 @@
                   "context": null,
                   "code": "const createRes = await api\n  .post('/todos')\n  .set('Authorization', `Bearer ${token}`)\n  .send({ title: 'Todo to be deleted' });\nconst todoId = createRes.body.id;\nconst res = await api\n  .delete(`/todos/${todoId}`)\n  .set('Authorization', `Bearer ${token}`);\nexpect(res.status).to.equal(204);",
                   "err": {},
-                  "uuid": "55070920-4b39-4b6b-a047-993c6af794e2",
-                  "parentUUID": "bde5dd79-1913-4d6c-88b1-a25eaa10018c",
+                  "uuid": "ddae6edd-6aaa-4cbc-a8d0-fe81b6b565ba",
+                  "parentUUID": "9f114aa0-e006-4f31-8f37-400b4b7bb7c1",
                   "isHook": false,
                   "skipped": false
                 },
@@ -459,16 +459,16 @@
                   "context": null,
                   "code": "const res = await api\n  .delete(`/todos/9999`)\n  .set('Authorization', `Bearer ${token}`);\nexpect(res.status).to.equal(404);\nexpect(res.body.message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "1581e154-9248-4cbd-b246-700cc7ffae89",
-                  "parentUUID": "bde5dd79-1913-4d6c-88b1-a25eaa10018c",
+                  "uuid": "bbb601b3-4b3d-4f39-a278-3df563a16644",
+                  "parentUUID": "9f114aa0-e006-4f31-8f37-400b4b7bb7c1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "55070920-4b39-4b6b-a047-993c6af794e2",
-                "1581e154-9248-4cbd-b246-700cc7ffae89"
+                "ddae6edd-6aaa-4cbc-a8d0-fe81b6b565ba",
+                "bbb601b3-4b3d-4f39-a278-3df563a16644"
               ],
               "failures": [],
               "pending": [],

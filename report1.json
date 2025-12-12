@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2025-11-29T01:08:09.663Z",
-    "end": "2025-11-29T01:08:10.175Z",
-    "duration": 512,
+    "start": "2025-12-12T01:21:44.165Z",
+    "end": "2025-12-12T01:21:44.666Z",
+    "duration": 501,
     "testsRegistered": 13,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "264ce33d-4090-4cbe-aff4-8466648d8873",
+      "uuid": "e923a9fd-19b8-4b11-9627-86bc3c1982ed",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6cfb958a-abd6-4321-b5c6-91c68e633078",
+          "uuid": "aef040b2-fb37-41fe-9d76-3801bf62574d",
           "title": "Auth Controller",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/authController.test.js",
           "file": "/test/rest/controller/authController.test.js",
@@ -46,8 +46,8 @@
               "context": null,
               "code": "sinon.restore();",
               "err": {},
-              "uuid": "0bca9f9e-cb26-4a91-aeab-fb3e827e9f44",
-              "parentUUID": "6cfb958a-abd6-4321-b5c6-91c68e633078",
+              "uuid": "688fb3ba-ad03-42aa-91a1-fdb5446dcf4d",
+              "parentUUID": "aef040b2-fb37-41fe-9d76-3801bf62574d",
               "isHook": true,
               "skipped": false
             }
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "3640e637-73cf-4449-b278-7c4b0f8e3e7a",
+              "uuid": "7e39014b-ddb5-4346-9a9a-54adb73af057",
               "title": "POST /auth/register",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/authController.test.js",
               "file": "/test/rest/controller/authController.test.js",
@@ -66,7 +66,7 @@
                   "title": "should register a new user successfully",
                   "fullTitle": "Auth Controller POST /auth/register should register a new user successfully",
                   "timedOut": false,
-                  "duration": 119,
+                  "duration": 115,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -75,32 +75,14 @@
                   "context": null,
                   "code": "sinon.stub(UserModel, 'findByEmail').returns(null);\nconst createUserStub = sinon.stub(UserModel, 'createUser').returns({ id: 1, email: 'testuser@example.com' });\nconst res = await request(app)\n  .post('/auth/register')\n  .send({ email: 'testuser@example.com', password: 'password123' });\nexpect(res.status).to.equal(201);\nexpect(res.body.message).to.equal('Usuário cadastrado com sucesso');\nexpect(createUserStub.calledOnce).to.be.true;",
                   "err": {},
-                  "uuid": "eb529156-dd83-4ad7-9515-02dd02204e28",
-                  "parentUUID": "3640e637-73cf-4449-b278-7c4b0f8e3e7a",
+                  "uuid": "6d72d324-1ab4-4c5f-ba30-61d5f338785c",
+                  "parentUUID": "7e39014b-ddb5-4346-9a9a-54adb73af057",
                   "isHook": false,
                   "skipped": false
                 },
                 {
                   "title": "should return 409 if email already exists",
                   "fullTitle": "Auth Controller POST /auth/register should return 409 if email already exists",
-                  "timedOut": false,
-                  "duration": 5,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "sinon.stub(UserModel, 'findByEmail').returns({ id: 1, email: 'testuser@example.com' });\nconst res = await request(app)\n  .post('/auth/register')\n  .send({ email: 'testuser@example.com', password: 'password123' });\nexpect(res.status).to.equal(409);\nexpect(res.body.message).to.equal('O usuário já existe');",
-                  "err": {},
-                  "uuid": "b2ae8cf9-c016-4f6f-998c-17569180cc96",
-                  "parentUUID": "3640e637-73cf-4449-b278-7c4b0f8e3e7a",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "should return 400 if email or password are not provided",
-                  "fullTitle": "Auth Controller POST /auth/register should return 400 if email or password are not provided",
                   "timedOut": false,
                   "duration": 3,
                   "state": "passed",
@@ -109,30 +91,48 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
+                  "code": "sinon.stub(UserModel, 'findByEmail').returns({ id: 1, email: 'testuser@example.com' });\nconst res = await request(app)\n  .post('/auth/register')\n  .send({ email: 'testuser@example.com', password: 'password123' });\nexpect(res.status).to.equal(409);\nexpect(res.body.message).to.equal('O usuário já existe');",
+                  "err": {},
+                  "uuid": "fa705f58-de79-4770-b9e8-b092ee166a42",
+                  "parentUUID": "7e39014b-ddb5-4346-9a9a-54adb73af057",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return 400 if email or password are not provided",
+                  "fullTitle": "Auth Controller POST /auth/register should return 400 if email or password are not provided",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
                   "code": "const res = await request(app)\n  .post('/auth/register')\n  .send({ email: 'testuser@example.com' });\nexpect(res.status).to.equal(400);\nexpect(res.body.message).to.equal('Email e senha são obrigatórios');",
                   "err": {},
-                  "uuid": "1b7095da-b20e-4a5e-bb90-1283adeadd45",
-                  "parentUUID": "3640e637-73cf-4449-b278-7c4b0f8e3e7a",
+                  "uuid": "a3a033d0-e783-4dd2-83e9-fa9369d00ee2",
+                  "parentUUID": "7e39014b-ddb5-4346-9a9a-54adb73af057",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "eb529156-dd83-4ad7-9515-02dd02204e28",
-                "b2ae8cf9-c016-4f6f-998c-17569180cc96",
-                "1b7095da-b20e-4a5e-bb90-1283adeadd45"
+                "6d72d324-1ab4-4c5f-ba30-61d5f338785c",
+                "fa705f58-de79-4770-b9e8-b092ee166a42",
+                "a3a033d0-e783-4dd2-83e9-fa9369d00ee2"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 127,
+              "duration": 120,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
             },
             {
-              "uuid": "19e59a97-e64e-4658-aba4-d68947f0637c",
+              "uuid": "fb507e38-a5a3-4a44-87ab-a1a289d0b383",
               "title": "POST /auth/login",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/authController.test.js",
               "file": "/test/rest/controller/authController.test.js",
@@ -143,7 +143,7 @@
                   "title": "should login successfully and return a token",
                   "fullTitle": "Auth Controller POST /auth/login should login successfully and return a token",
                   "timedOut": false,
-                  "duration": 176,
+                  "duration": 178,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -152,8 +152,8 @@
                   "context": null,
                   "code": "const hashedPassword = await bcrypt.hash('password123', 10);\nconst user = { id: 1, email: 'testuser@example.com', password: hashedPassword };\nsinon.stub(UserModel, 'findByEmail').returns(user);\nconst res = await request(app)\n  .post('/auth/login')\n  .send({ email: 'testuser@example.com', password: 'password123' });\nexpect(res.status).to.equal(200);\nexpect(res.body).to.have.property('token');",
                   "err": {},
-                  "uuid": "87f6f7d7-a03e-4edd-9545-7ff3a1b6173a",
-                  "parentUUID": "19e59a97-e64e-4658-aba4-d68947f0637c",
+                  "uuid": "684b0bd5-ccf6-442b-9031-e63818d2e48a",
+                  "parentUUID": "fb507e38-a5a3-4a44-87ab-a1a289d0b383",
                   "isHook": false,
                   "skipped": false
                 },
@@ -170,8 +170,8 @@
                   "context": null,
                   "code": "sinon.stub(UserModel, 'findByEmail').returns(null);\nconst res = await request(app)\n  .post('/auth/login')\n  .send({ email: 'wronguser@example.com', password: 'password123' });\nexpect(res.status).to.equal(401);\nexpect(res.body.message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "d7671230-0bef-4697-accd-023911a2ee94",
-                  "parentUUID": "19e59a97-e64e-4658-aba4-d68947f0637c",
+                  "uuid": "0f2b28b0-a1af-4159-874d-56e65cdd4d72",
+                  "parentUUID": "fb507e38-a5a3-4a44-87ab-a1a289d0b383",
                   "isHook": false,
                   "skipped": false
                 },
@@ -179,7 +179,7 @@
                   "title": "should return 401 for invalid credentials (wrong password)",
                   "fullTitle": "Auth Controller POST /auth/login should return 401 for invalid credentials (wrong password)",
                   "timedOut": false,
-                  "duration": 174,
+                  "duration": 168,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -188,22 +188,22 @@
                   "context": null,
                   "code": "const hashedPassword = await bcrypt.hash('password123', 10);\nconst user = { id: 1, email: 'testuser@example.com', password: hashedPassword };\nsinon.stub(UserModel, 'findByEmail').returns(user);\nconst res = await request(app)\n  .post('/auth/login')\n  .send({ email: 'testuser@example.com', password: 'wrongpassword' });\nexpect(res.status).to.equal(401);\nexpect(res.body.message).to.equal('Credenciais inválidas');",
                   "err": {},
-                  "uuid": "f86fc722-c123-4dcf-bdaf-07a0a7801560",
-                  "parentUUID": "19e59a97-e64e-4658-aba4-d68947f0637c",
+                  "uuid": "052576f6-71cf-4993-b0d3-f914ab0b313b",
+                  "parentUUID": "fb507e38-a5a3-4a44-87ab-a1a289d0b383",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "87f6f7d7-a03e-4edd-9545-7ff3a1b6173a",
-                "d7671230-0bef-4697-accd-023911a2ee94",
-                "f86fc722-c123-4dcf-bdaf-07a0a7801560"
+                "684b0bd5-ccf6-442b-9031-e63818d2e48a",
+                "0f2b28b0-a1af-4159-874d-56e65cdd4d72",
+                "052576f6-71cf-4993-b0d3-f914ab0b313b"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 353,
+              "duration": 349,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
@@ -219,7 +219,7 @@
           "_timeout": 10000
         },
         {
-          "uuid": "7ad91692-739a-4455-baf0-b1fcb8cfb676",
+          "uuid": "1322dedd-7094-4364-84d2-4c669e5ca435",
           "title": "To-Do Controller",
           "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/todoController.test.js",
           "file": "/test/rest/controller/todoController.test.js",
@@ -228,7 +228,7 @@
               "title": "\"before each\" hook in \"To-Do Controller\"",
               "fullTitle": "To-Do Controller \"before each\" hook in \"To-Do Controller\"",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": null,
               "speed": null,
               "pass": false,
@@ -237,8 +237,8 @@
               "context": null,
               "code": "sinon.stub(jwt, 'verify').returns(fakeUser);",
               "err": {},
-              "uuid": "d4b57db3-b2f2-4146-a735-ee279b9156e8",
-              "parentUUID": "7ad91692-739a-4455-baf0-b1fcb8cfb676",
+              "uuid": "5467d596-188e-4318-8552-8dc8d8583f1f",
+              "parentUUID": "1322dedd-7094-4364-84d2-4c669e5ca435",
               "isHook": true,
               "skipped": false
             }
@@ -257,8 +257,8 @@
               "context": null,
               "code": "sinon.restore();",
               "err": {},
-              "uuid": "f93a3a65-4594-4e21-9a51-2505c949afd4",
-              "parentUUID": "7ad91692-739a-4455-baf0-b1fcb8cfb676",
+              "uuid": "85a389e7-8cd4-47a5-902b-f5aaf15d7d34",
+              "parentUUID": "1322dedd-7094-4364-84d2-4c669e5ca435",
               "isHook": true,
               "skipped": false
             }
@@ -266,7 +266,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "2d87fcdc-48b9-4aa4-ba3a-878640de7c55",
+              "uuid": "9847fe55-fed5-47b4-bd3f-430f0d7f93d5",
               "title": "GET /todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/todoController.test.js",
               "file": "/test/rest/controller/todoController.test.js",
@@ -286,15 +286,15 @@
                   "context": null,
                   "code": "const userTodos = [{ id: 1, userId: fakeUser.id, title: 'User 1 Todo' }];\nsinon.stub(TodoModel, 'findAllByUserId').withArgs(fakeUser.id).returns(userTodos);\nconst res = await request(app)\n  .get('/todos')\n  .set('Authorization', 'Bearer fake-token');\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an('array').with.lengthOf(1);\nexpect(res.body[0].title).to.equal('User 1 Todo');\nexpect(TodoModel.findAllByUserId.calledWith(fakeUser.id)).to.be.true;",
                   "err": {},
-                  "uuid": "23ab483e-2d25-40ef-bc4e-292a97f834a9",
-                  "parentUUID": "2d87fcdc-48b9-4aa4-ba3a-878640de7c55",
+                  "uuid": "18afc975-465f-43f3-9c0d-544250dec2b0",
+                  "parentUUID": "9847fe55-fed5-47b4-bd3f-430f0d7f93d5",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "23ab483e-2d25-40ef-bc4e-292a97f834a9"
+                "18afc975-465f-43f3-9c0d-544250dec2b0"
               ],
               "failures": [],
               "pending": [],
@@ -305,7 +305,7 @@
               "_timeout": 10000
             },
             {
-              "uuid": "8d18799f-5a6b-44ee-8f92-1ffb3605f8d2",
+              "uuid": "75a09bf8-5197-4988-95d9-1a9c393125d5",
               "title": "POST /todos",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/todoController.test.js",
               "file": "/test/rest/controller/todoController.test.js",
@@ -325,8 +325,8 @@
                   "context": null,
                   "code": "const newTodo = { title: 'New Test Todo', description: 'A description' };\nconst createdTodo = { id: 10, userId: fakeUser.id, ...newTodo, completed: false, createdAt: new Date() };\nsinon.stub(TodoModel, 'create').returns(createdTodo);\nconst res = await request(app)\n  .post('/todos')\n  .set('Authorization', 'Bearer fake-token')\n  .send(newTodo);\nexpect(res.status).to.equal(201);\nexpect(res.body.title).to.equal(newTodo.title);\nexpect(res.body.userId).to.equal(fakeUser.id);\nexpect(TodoModel.create.calledWith(sinon.match({ userId: fakeUser.id, title: newTodo.title }))).to.be.true;",
                   "err": {},
-                  "uuid": "57b116ac-b4d2-4263-a696-5ff9f4191d20",
-                  "parentUUID": "8d18799f-5a6b-44ee-8f92-1ffb3605f8d2",
+                  "uuid": "d8ae6463-d220-490f-882d-13937f09e45c",
+                  "parentUUID": "75a09bf8-5197-4988-95d9-1a9c393125d5",
                   "isHook": false,
                   "skipped": false
                 },
@@ -343,16 +343,16 @@
                   "context": null,
                   "code": "const res = await request(app)\n  .post('/todos')\n  .set('Authorization', 'Bearer fake-token')\n  .send({ description: 'A description' });\nexpect(res.status).to.equal(400);\nexpect(res.body.message).to.equal('Titulo é obrigatório');",
                   "err": {},
-                  "uuid": "00ba9f11-cf7d-4d36-9685-605798bf8995",
-                  "parentUUID": "8d18799f-5a6b-44ee-8f92-1ffb3605f8d2",
+                  "uuid": "70e4d7e7-f2fd-45e8-bee2-cd5dd6ef92f7",
+                  "parentUUID": "75a09bf8-5197-4988-95d9-1a9c393125d5",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "57b116ac-b4d2-4263-a696-5ff9f4191d20",
-                "00ba9f11-cf7d-4d36-9685-605798bf8995"
+                "d8ae6463-d220-490f-882d-13937f09e45c",
+                "70e4d7e7-f2fd-45e8-bee2-cd5dd6ef92f7"
               ],
               "failures": [],
               "pending": [],
@@ -363,7 +363,7 @@
               "_timeout": 10000
             },
             {
-              "uuid": "98051131-bb43-4584-a1e7-eb9df84b1f9f",
+              "uuid": "86dcac22-508d-4401-abda-116110c5bc6d",
               "title": "PUT /todos/:id",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/todoController.test.js",
               "file": "/test/rest/controller/todoController.test.js",
@@ -383,8 +383,8 @@
                   "context": null,
                   "code": "const todoId = 1;\nconst updatedData = { title: 'Updated Title', completed: true };\nconst updatedTodo = { id: todoId, userId: fakeUser.id, ...updatedData };\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(todoId, fakeUser.id).returns(0);\nsinon.stub(TodoModel, 'update').returns(updatedTodo);\nconst res = await request(app)\n  .put(`/todos/${todoId}`)\n  .set('Authorization', 'Bearer fake-token')\n  .send(updatedData);\nexpect(res.status).to.equal(200);\nexpect(res.body.title).to.equal(updatedData.title);\nexpect(res.body.completed).to.be.true;",
                   "err": {},
-                  "uuid": "f1bc1666-aba9-449a-9aaa-3c7f56fba45f",
-                  "parentUUID": "98051131-bb43-4584-a1e7-eb9df84b1f9f",
+                  "uuid": "39ba518f-6495-41d3-aaab-a041bfa30ea1",
+                  "parentUUID": "86dcac22-508d-4401-abda-116110c5bc6d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -401,16 +401,16 @@
                   "context": null,
                   "code": "const todoId = 99;\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(todoId, fakeUser.id).returns(-1);\nconst res = await request(app)\n  .put(`/todos/${todoId}`)\n  .set('Authorization', 'Bearer fake-token')\n  .send({ title: 'Does not matter' });\nexpect(res.status).to.equal(404);\nexpect(res.body.message).to.equal('Tarefa não encontrada');",
                   "err": {},
-                  "uuid": "ea0fd087-b95b-4e6e-a1d8-3f3df3d07ecb",
-                  "parentUUID": "98051131-bb43-4584-a1e7-eb9df84b1f9f",
+                  "uuid": "49dc2727-67a7-4601-bc6e-2438cdfd3eb1",
+                  "parentUUID": "86dcac22-508d-4401-abda-116110c5bc6d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "f1bc1666-aba9-449a-9aaa-3c7f56fba45f",
-                "ea0fd087-b95b-4e6e-a1d8-3f3df3d07ecb"
+                "39ba518f-6495-41d3-aaab-a041bfa30ea1",
+                "49dc2727-67a7-4601-bc6e-2438cdfd3eb1"
               ],
               "failures": [],
               "pending": [],
@@ -421,7 +421,7 @@
               "_timeout": 10000
             },
             {
-              "uuid": "6d43a679-1e69-45d6-8990-223343e83ff9",
+              "uuid": "6cd3d29b-4445-4ce9-a91b-725182a1aebb",
               "title": "DELETE /todos/:id",
               "fullFile": "/home/runner/work/trabalho-final-todo-list/trabalho-final-todo-list/test/rest/controller/todoController.test.js",
               "file": "/test/rest/controller/todoController.test.js",
@@ -441,8 +441,8 @@
                   "context": null,
                   "code": "const todoId = 1;\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(todoId, fakeUser.id).returns(0);\nconst removeStub = sinon.stub(TodoModel, 'remove');\nconst res = await request(app)\n  .delete(`/todos/${todoId}`)\n  .set('Authorization', 'Bearer fake-token');\nexpect(res.status).to.equal(204);\nexpect(removeStub.calledOnce).to.be.true;",
                   "err": {},
-                  "uuid": "99acf6de-e9ee-4a22-9a3f-96aabe335553",
-                  "parentUUID": "6d43a679-1e69-45d6-8990-223343e83ff9",
+                  "uuid": "1b95d4d9-0e55-43bb-bc3f-4a157b41ecd2",
+                  "parentUUID": "6cd3d29b-4445-4ce9-a91b-725182a1aebb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -459,16 +459,16 @@
                   "context": null,
                   "code": "const todoId = 99;\nsinon.stub(TodoModel, 'findIndexByIdAndUserId').withArgs(todoId, fakeUser.id).returns(-1);\nconst res = await request(app)\n  .delete(`/todos/${todoId}`)\n  .set('Authorization', 'Bearer fake-token');\nexpect(res.status).to.equal(404);",
                   "err": {},
-                  "uuid": "3f5880aa-4d22-4f9d-a9e2-ec37cad52207",
-                  "parentUUID": "6d43a679-1e69-45d6-8990-223343e83ff9",
+                  "uuid": "0aff8934-8a1e-43f9-a1cc-b13a3cba87b1",
+                  "parentUUID": "6cd3d29b-4445-4ce9-a91b-725182a1aebb",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "99acf6de-e9ee-4a22-9a3f-96aabe335553",
-                "3f5880aa-4d22-4f9d-a9e2-ec37cad52207"
+                "1b95d4d9-0e55-43bb-bc3f-4a157b41ecd2",
+                "0aff8934-8a1e-43f9-a1cc-b13a3cba87b1"
               ],
               "failures": [],
               "pending": [],
